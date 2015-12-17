@@ -9,7 +9,6 @@ class Document extends Admin_Controller {
 		
 		$this->load->helper('form');		
 		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<span style="color:#f00">','</span>');
 	}
 	
 	public function index(){

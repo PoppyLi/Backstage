@@ -46,4 +46,6 @@ $config = array(
     )
 );
 
+$config['error_prefix'] = '<span style="color:#f00">';
+$config['error_suffix'] = '</span>';
 ?>

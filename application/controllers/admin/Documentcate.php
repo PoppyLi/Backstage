@@ -8,7 +8,6 @@ class Documentcate extends Admin_Controller {
 				
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->form_validation->set_error_delimiters('<span style="color:#f00">','</span>');
 	}
 	//内容分类
 	public function index(){
