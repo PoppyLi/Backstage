@@ -26,22 +26,22 @@
 													if(!empty($lists)){
 														foreach($lists as $v){
 												?>
-													<option value="<?php echo $v['id']?>"><?php echo str_repeat('&nbsp;',($v['level'] - 1)*4).$v['name']?></option>
+													<option value="<?php echo $v['id']?>" <?php echo set_select('pid',$v['id']);?>><?php echo str_repeat('&nbsp;',($v['level'] - 1)*4).$v['name']?></option>
 												<?php
 														}
 													}
 												?>
-											</select>
+											</select>&nbsp;<?php echo form_error('pid','<span style="color:#f00">','</span>');?>
                                         </div>
                                     </div>                                </td>
                             </tr>
                             <tr>
                                 <td class="td_right">分类名称：</td>
-                                <td><input type="text" name="name" class="input-text lh30" required="required"/></td>
+                                <td><input type="text" name="name" class="input-text lh30" value="<?php echo set_value('name'); ?>" required/>&nbsp;<?php echo form_error('name','<span style="color:#f00">','</span>');?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">分类排序：</td>
-                                <td><input type="text" name="sort" class="input-text lh30" value="1" pattern="[0-9]+" /> 值越小越排在前</td>
+                                <td><input type="text" name="sort" class="input-text lh30" value="<?php echo set_value('sort'); ?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort','<span style="color:#f00">','</span>');?>&nbsp;值越小越排在前</td>
                             </tr>
                             <tr>
                                 <td class="td_right">&nbsp;</td>

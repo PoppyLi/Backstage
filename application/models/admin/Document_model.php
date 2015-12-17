@@ -57,8 +57,8 @@ class Document_model extends MY_Model {
 		$data = $this->_get_data($this->t);
 		if(empty($data)){
 			return 0;
-		}
-		$date['image'] = !empty($images) ? $date['image']:$images;
+		}		
+		$data['image'] = !empty($images) ? $data['image']:$images;
 		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
 		$this->db->insert($this->t,$data);
 		return $this->db->insert_id();

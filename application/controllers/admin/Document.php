@@ -54,7 +54,11 @@ class Document extends Admin_Controller {
 		}
 		$where = array('id' => $id);
 		
-		if(! empty($_POST)){
+		//设置表单验证提交规则
+		$this->load->helper('form');		
+		$this->load->library('form_validation');
+		$state = $this->form_validation->run('document');
+		if($state && (! empty($_POST))){
 			$affected_rows = $this->Document_model->edit($where);
 			if(empty($affected_rows)){
 				echo '<script>alert("修改失败！");history.back()"</script>';
@@ -75,10 +79,14 @@ class Document extends Admin_Controller {
 	
 	public function add(){
 		$data = array();
-				
 		
-		if(! empty($_POST)){
-			$config['upload_path'] = './upload/images/'.C.'/';			
+		//设置表单验证提交规则
+		$this->load->helper('form');		
+		$this->load->library('form_validation');
+		$state = $this->form_validation->run('document');
+		
+		if($state && (! empty($_POST))){	  
+			$config['upload_path'] = './upload/images/'.C.'/';
 			$images = $this->_image_upload($config,'filename');
 			$insert_id = $this->Document_model->add($config['upload_path'].$images['file_name']);
 			if(empty($insert_id)){
@@ -90,7 +98,7 @@ class Document extends Admin_Controller {
 		}
 		$data['documentcate_id'] = $this->uri->segment(4,0);
 		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
-		$this->load->view(MODULE.'/'.C.'/'.M,$data);	
+		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
 	public function del(){

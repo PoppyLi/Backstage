@@ -14,9 +14,14 @@ class Documentcate extends Admin_Controller {
 		
 	//添加分类
 	public function add(){
-		if(! empty($_POST)){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$state = $this->form_validation->run('documentcate');	
+			
+		if($state && (!empty($_POST))){
 			$this->Documentcate_model->add();
 		}
+		
 		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
@@ -34,7 +39,12 @@ class Documentcate extends Admin_Controller {
 		if(empty($data['rows'])){
 			echo '<script>alert("数据非法！");history.back()"</script>';
 		}
-		if(! empty($_POST)){
+		
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$state = $this->form_validation->run('documentcate');	
+			
+		if($state && (!empty($_POST))){
 			$affected_rows = $this->Documentcate_model->edit($where);
 			if(empty($affected_rows)){
 				echo '<script>alert("修改失败！");history.back()"</script>';
