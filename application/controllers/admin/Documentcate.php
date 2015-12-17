@@ -5,6 +5,10 @@ class Documentcate extends Admin_Controller {
 	public function __construct(){
 		parent :: __construct();
 		$this->load->model(MODULE.'/Documentcate_model');
+				
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<span style="color:#f00">','</span>');
 	}
 	//内容分类
 	public function index(){
@@ -14,10 +18,7 @@ class Documentcate extends Admin_Controller {
 		
 	//添加分类
 	public function add(){
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		$state = $this->form_validation->run('documentcate');	
-			
+		$state = $this->form_validation->run('documentcate');			
 		if($state && (!empty($_POST))){
 			$this->Documentcate_model->add();
 		}
@@ -38,10 +39,7 @@ class Documentcate extends Admin_Controller {
 		$data['rows'] = $this->Documentcate_model->rows($where);
 		if(empty($data['rows'])){
 			echo '<script>alert("数据非法！");history.back()"</script>';
-		}
-		
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+		}		
 		$state = $this->form_validation->run('documentcate');	
 			
 		if($state && (!empty($_POST))){

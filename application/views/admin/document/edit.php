@@ -30,26 +30,26 @@
 														}
 													}
 												?>
-                                            </select>&nbsp;<?php echo form_error('documentcate_id','<span style="color:#f00">','</span>');?>
+                                            </select>&nbsp;<?php echo form_error('documentcate_id');?>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td_right">标题：</td>
-                                <td><input type="text" name="title" class="input-text lh30" value="<?php echo $rows[0]['title']?>"/>&nbsp;<?php echo form_error('title','<span style="color:#f00">','</span>');?></td>
+                                <td><input type="text" name="title" class="input-text lh30" value="<?php echo $rows[0]['title']?>"/>&nbsp;<?php echo form_error('title');?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">排序：</td>
-                                <td><input type="text" name="sort" class="input-text lh30" value="<?php echo $rows[0]['sort']?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort','<span style="color:#f00">','</span>');?></td>
+                                <td><input type="text" name="sort" class="input-text lh30" value="<?php echo $rows[0]['sort']?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort');?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">添加时间：</td>
-                                <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:m:s',$rows[0]['addtime'])?>" />&nbsp;<?php echo form_error('addtime','<span style="color:#f00">','</span>');?></td>
+                                <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:m:s',$rows[0]['addtime'])?>" />&nbsp;<?php echo form_error('addtime');?></td>
                             </tr>
                             <tr>
                                 <td valign="top" class="td_right">内容：</td>
-                                <td><textarea id="content" name="content" style="width:700px;height:200px;visibility:hidden;"><?php echo (set_value('content')==null)?htmlspecialchars($rows[0]['content']):set_value('content');?></textarea>&nbsp;<?php echo form_error('content','<span style="color:#f00">','</span>');?></td>
+                                <td><textarea id="content" name="content" style="width:700px;height:200px;visibility:hidden;"><?php echo (set_value('content')==null)?htmlspecialchars($rows[0]['content']):set_value('content');?></textarea>&nbsp;<?php echo form_error('content');?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">&nbsp;</td>

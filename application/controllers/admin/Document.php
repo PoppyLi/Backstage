@@ -6,6 +6,10 @@ class Document extends Admin_Controller {
 		parent :: __construct();
 		$this->load->model(MODULE.'/Documentcate_model');
 		$this->load->model(MODULE.'/Document_model');
+		
+		$this->load->helper('form');		
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<span style="color:#f00">','</span>');
 	}
 	
 	public function index(){
@@ -53,11 +57,8 @@ class Document extends Admin_Controller {
 			exit();
 		}
 		$where = array('id' => $id);
-		
-		//设置表单验证提交规则
-		$this->load->helper('form');		
-		$this->load->library('form_validation');
 		$state = $this->form_validation->run('document');
+		
 		if($state && (! empty($_POST))){
 			$affected_rows = $this->Document_model->edit($where);
 			if(empty($affected_rows)){
@@ -78,11 +79,7 @@ class Document extends Admin_Controller {
 	}
 	
 	public function add(){
-		$data = array();
-		
-		//设置表单验证提交规则
-		$this->load->helper('form');		
-		$this->load->library('form_validation');
+		$data = array();		
 		$state = $this->form_validation->run('document');
 		
 		if($state && (! empty($_POST))){	  

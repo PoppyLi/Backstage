@@ -31,17 +31,17 @@
 														}
 													}
 												?>
-											</select>&nbsp;<?php echo form_error('pid','<span style="color:#f00">','</span>');?>
+											</select>&nbsp;<?php echo form_error('pid');?>
                                         </div>
                                     </div>                                </td>
                             </tr>
                             <tr>
                                 <td class="td_right">分类名称：</td>
-                                <td><input type="text" name="name" class="input-text lh30" required value="<?php echo $rows[0]['name']; ?>"/>&nbsp;<?php echo form_error('name','<span style="color:#f00">','</span>');?></td>
+                                <td><input type="text" name="name" class="input-text lh30" required value="<?php echo $rows[0]['name']; ?>"/>&nbsp;<?php echo form_error('name');?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">分类排序：</td>
-                                <td><input type="text" name="sort" class="input-text lh30" value="<?php echo $rows[0]['sort']; ?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort','<span style="color:#f00">','</span>');?>&nbsp;值越小越排在前</td>
+                                <td><input type="text" name="sort" class="input-text lh30" value="<?php echo $rows[0]['sort']; ?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort');?>&nbsp;值越小越排在前</td>
                             </tr>
                             <tr>
                                 <td class="td_right">&nbsp;</td>
