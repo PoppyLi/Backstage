@@ -12,12 +12,12 @@ class Login extends MY_Controller {
 			$verify = $this->input->post('verify',NULL);
 			
 			if(empty($username) || empty($password) || empty($verify)){
-				echo '<script>alert("不能为空！");history.back();</script>';
+				Errmsg('不能为空');
 				exit();
 			}
 			
 			if($verify != $_SESSION['verify']){
-				echo '<script>alert("验证码不正确！");history.back();</script>';
+				Errmsg('验证码不正确');
 				exit();
 			}
 			unset($_SESSION['verify']);
@@ -30,12 +30,12 @@ class Login extends MY_Controller {
 			);
 			$user = $this->User_model->login($where);
 			if(empty($user)){
-				echo '<script>alert("用户名或密码错误！");history.back();</script>';
+				Errmsg('用户名或密码错误');
 				exit();
 			}
 			
 			if(empty($user['status'])){
-				echo '<script>alert("你已经被禁用！");history.back();</script>';
+				Errmsg('你已经被禁用');
 				exit();
 			}
 			

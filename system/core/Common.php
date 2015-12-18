@@ -850,3 +850,15 @@ if ( ! function_exists('function_usable'))
 		return FALSE;
 	}
 }
+
+
+//------------------------------------------------------------
+//自定义函数
+
+function Msgbox($msg,$url){
+	echo "<script>alert('$msg');location.href='$url';</script>";	
+}
+
+function Errmsg(){
+	echo "<script>alert('$msg');history.back();</script>";
+}

@@ -17,7 +17,7 @@ class User extends Admin_Controller {
 			);
 			$row = $this->User_model->login($where);
 			if(empty($row)){
-				echo '<script>alert("旧密码错误!");history.back();</script>';
+				Errmsg('旧密码错误');
 				exit();
 			}
 			
@@ -28,9 +28,9 @@ class User extends Admin_Controller {
 			);			
 			$affected_rows = $this->User_model->updata_pass($date);
 			if(empty($affected_rows)){
-				echo '<script>alert("修改失败！");history.back();</script>';
+				Errmsg('修改失败');
 			}else{
-				echo '<script>alert("修改成功！");location.href="'.site_url(MODULE.'/'.C.'/'.M).'"</script>';
+				Msgbox('修改成功',site_url(MODULE.'/'.C.'/'.M));
 			}
 			exit();
 		}

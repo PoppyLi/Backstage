@@ -52,7 +52,7 @@ class Document extends Admin_Controller {
 		$data = array();
 		$id = $this->uri->segment(4,0);	
 		if(empty($id)){
-			echo '<script>alert("非法参数！");history.back()"</script>';
+			Errmsg('数据非法');
 			exit();
 		}
 		$where = array('id' => $id);
@@ -61,16 +61,16 @@ class Document extends Admin_Controller {
 		if($state && (! empty($_POST))){
 			$affected_rows = $this->Document_model->edit($where);
 			if(empty($affected_rows)){
-				echo '<script>alert("修改失败！");history.back()"</script>';
+				Errmsg('修改失败');
 			}else{
-				echo '<script>alert("修改成功！");location.href="'.site_url(MODULE.'/'.C.'/index').'"</script>';
+				Msgbox('添加成功',site_url(MODULE.'/'.C.'/index'));
 			}
 			exit();
 		}
 		
 		$data['rows'] = $this->Document_model->rows($where);
 		if(empty($data['rows'])){
-			echo '<script>alert("数据非法！");history.back()"</script>';
+			Errmsg('数据非法');
 		}
 		
 		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
@@ -86,9 +86,9 @@ class Document extends Admin_Controller {
 			$images = $this->_image_upload($config,'filename');
 			$insert_id = $this->Document_model->add($config['upload_path'].$images['file_name']);
 			if(empty($insert_id)){
-				echo '<script>alert("添加失败！");history.back()"</script>';
+				Errmsg('添加失败');
 			}else{
-				echo '<script>alert("添加成功！");location.href="'.site_url(MODULE.'/'.C.'/'.M.'/'.$this->input->post('documentcate_id',0)).'"</script>';
+				Msgbox('添加成功',site_url(MODULE.'/'.C.'/'.M.'/'.$this->input->post('documentcate_id',0)));
 			}
 			exit();
 		}
@@ -105,12 +105,12 @@ class Document extends Admin_Controller {
 			$id = $this->uri->segment(4,0);	
 		}
 		if(empty($id)){
-			echo '<script>alert("非法参数！");history.back()"</script>';
+			Errmsg('非法参数');
 			exit();
 		}	
 		$affected_rows = $this->Document_model->del($id);
 		if(empty($affected_rows)){
-			echo '<script>alert("删除失败！");history.back()"</script>';
+			Errmsg('删除失败');
 			exit();
 		}
 		redirect(MODULE.'/'.C.'/index');	

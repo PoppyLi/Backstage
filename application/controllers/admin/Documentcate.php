@@ -19,7 +19,12 @@ class Documentcate extends Admin_Controller {
 	public function add(){
 		$state = $this->form_validation->run('documentcate');			
 		if($state && (!empty($_POST))){
-			$this->Documentcate_model->add();
+			$affected_rows = $this->Documentcate_model->add();
+			if(empty($affected_rows)){
+				Errmsg('添加失败');
+			}else{
+				Msgbox('添加成功',site_url(MODULE.'/'.C.'/add'));
+			}
 		}
 		
 		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
@@ -31,22 +36,22 @@ class Documentcate extends Admin_Controller {
 		$data = array();
 		$id = $this->uri->segment(4,0);		
 		if(empty($id)){
-			echo '<script>alert("非法参数！");history.back()"</script>';
+			Errmsg('非法参数');
 			exit();
 		}
 		$where = array('id' => $id);	
 		$data['rows'] = $this->Documentcate_model->rows($where);
 		if(empty($data['rows'])){
-			echo '<script>alert("数据非法！");history.back()"</script>';
+			Errmsg('数据非法');
 		}		
 		$state = $this->form_validation->run('documentcate');	
 			
 		if($state && (!empty($_POST))){
 			$affected_rows = $this->Documentcate_model->edit($where);
 			if(empty($affected_rows)){
-				echo '<script>alert("修改失败！");history.back()"</script>';
+				Errmsg('修改失败');
 			}else{
-				echo '<script>alert("修改成功！");location.href="'.site_url(MODULE.'/'.C.'/index').'"</script>';
+				Msgbox('修改成功',site_url(MODULE.'/'.C.'/index'));
 			}
 			exit();
 		}
@@ -61,7 +66,7 @@ class Documentcate extends Admin_Controller {
 		$data = array();
 		$id = $this->uri->segment(4,0);		
 		if(empty($id)){
-			echo '<script>alert("非法参数！");history.back()"</script>';
+			Errmsg('非法参数');
 			exit();
 		}
 		$del_id[] = $id;
@@ -71,7 +76,7 @@ class Documentcate extends Admin_Controller {
 		}
 		$affected_rows = $this->Documentcate_model->del($del_id);
 		if(empty($affected_rows)){
-			echo '<script>alert("删除失败！");history.back()"</script>';
+			Errmsg('删除失败');
 			exit();
 		}else{
 			$this->load->model(MODULE.'/Document_model');
