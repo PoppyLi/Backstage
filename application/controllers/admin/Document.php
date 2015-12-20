@@ -58,11 +58,9 @@ class Document extends Admin_Controller {
 		$where = array('id' => $id);
 		$state = $this->form_validation->run('document');
 		
-		if($state && (! empty($_POST))){
+		if($state){
 			$affected_rows = $this->Document_model->edit($where);
-			if(empty($affected_rows)){
-				Errmsg('修改失败');
-			}else{
+			if($affected_rows){
 				Msgbox('添加成功',site_url(MODULE.'/'.C.'/index'));
 			}
 			exit();
@@ -85,9 +83,7 @@ class Document extends Admin_Controller {
 			$config['upload_path'] = './upload/images/'.C.'/';
 			$images = $this->_image_upload($config,'filename');
 			$insert_id = $this->Document_model->add($config['upload_path'].$images['file_name']);
-			if(empty($insert_id)){
-				Errmsg('添加失败');
-			}else{
+			if($insert_id){
 				Msgbox('添加成功',site_url(MODULE.'/'.C.'/'.M.'/'.$this->input->post('documentcate_id',0)));
 			}
 			exit();
