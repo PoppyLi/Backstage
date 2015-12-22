@@ -14,7 +14,7 @@ class Document_model extends MY_Model {
 			$this->db->like($like);
 		}
 		$this->db->join($this->tc,$this->t.'.documentcate_id = '.$this->tc.'.id','LEFT');
-		$this->db->order_by($this->t.'.sort,'.$this->t.'.id');			
+		$this->db->order_by($this->t.'.documentcate_id,'.$this->t.'.sort',$this->t.'.addtime');			
 		$query = $this->db->get($this->t,$limit,$offset);
 		$result = $query->result_array();
 		return $result;
@@ -39,7 +39,7 @@ class Document_model extends MY_Model {
 		return $this->db->get_where($this->t,$where)->result_array();
 	}
 	
-	public function edit($where = array()){
+	public function edit($where = array(),$image = NULL){
 		if(empty($where)){
 			return 0;
 		}
@@ -47,7 +47,7 @@ class Document_model extends MY_Model {
 		if(empty($data)){
 			return 0;
 		}	
-		
+		$data['image'] = $image;
 		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
 		$this->db->update($this->t,$data,$where);
 		return $this->db->affected_rows();
@@ -58,7 +58,7 @@ class Document_model extends MY_Model {
 		if(empty($data)){
 			return 0;
 		}		
-		$data['image'] = !empty($images) ? $data['image']:$images;
+		$data['image'] = $images;
 		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
 		$this->db->insert($this->t,$data);
 		return $this->db->insert_id();
@@ -70,6 +70,10 @@ class Document_model extends MY_Model {
 		}
 		if(empty($field)){
 			$field = 'id';
+		}
+		$images = $this->db->select('image')->where_in($field,$id)->get($this->t)->result_array();
+		foreach($images as $v){
+			file_exists($v['image'])?unlink($v['image']):NULL;
 		}
 		$this->db->where_in($field,$id)->delete($this->t);
 		return $this->db->affected_rows();

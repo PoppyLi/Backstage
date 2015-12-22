@@ -13,7 +13,7 @@
         <div class="box">
             <div class="box_border">
                 <div class="box_center">
-                    <form action="<?php echo site_url(MODULE.'/'.C.'/'.M.'/'.$rows[0]['id'])?>" method="post" class="jqtransform">
+                    <form action="<?php echo site_url(MODULE.'/'.C.'/'.M.'/'.$rows[0]['id'])?>" enctype="multipart/form-data" method="post" class="jqtransform">
                         <table class="form_table pt15 pb15" width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="td_right">所属分类：</td>
@@ -46,6 +46,10 @@
                             <tr>
                                 <td class="td_right">添加时间：</td>
                                 <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:m:s',$rows[0]['addtime'])?>" />&nbsp;<?php echo form_error('addtime');?></td>
+                            </tr>
+                            <tr>
+                              	<td valign="top" class="td_right">图片：</td>
+                              	<td><input type="text" name="image" class="input-text lh30" value="<?php echo $rows[0]['image']?>" /><input type="file" name="filename"/></td>
                             </tr>
                             <tr>
                                 <td valign="top" class="td_right">内容：</td>

@@ -859,6 +859,6 @@ function Msgbox($msg,$url){
 	echo "<script>alert('$msg');location.href='$url';</script>";	
 }
 
-function Errmsg(){
+function Errmsg($msg){
 	echo "<script>alert('$msg');history.back();</script>";
 }

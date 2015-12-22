@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Documentcate extends Admin_Controller {
 	public function __construct(){
 		parent :: __construct();
-		$this->load->model(MODULE.'/Documentcate_model');
+		$this->load->model(MODULE.'/Documentcate_model','Dcate');
 				
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 	}
 	//内容分类
 	public function index(){
-		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
+		$data['lists'] = $this->_cate_level($this->Dcate->lists());
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 		
@@ -19,7 +19,7 @@ class Documentcate extends Admin_Controller {
 	public function add(){
 		$state = $this->form_validation->run('documentcate');			
 		if($state && (!empty($_POST))){
-			$affected_rows = $this->Documentcate_model->add();
+			$affected_rows = $this->Dcate->add();
 			if(empty($affected_rows)){
 				Errmsg('添加失败');
 			}else{
@@ -27,7 +27,7 @@ class Documentcate extends Admin_Controller {
 			}
 		}
 		
-		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists());
+		$data['lists'] = $this->_cate_level($this->Dcate->lists());
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
@@ -40,14 +40,14 @@ class Documentcate extends Admin_Controller {
 			exit();
 		}
 		$where = array('id' => $id);	
-		$data['rows'] = $this->Documentcate_model->rows($where);
+		$data['rows'] = $this->Dcate->rows($where);
 		if(empty($data['rows'])){
 			Errmsg('数据非法');
 		}		
 		$state = $this->form_validation->run('documentcate');	
 			
 		if($state && (!empty($_POST))){
-			$affected_rows = $this->Documentcate_model->edit($where);
+			$affected_rows = $this->Dcate->edit($where);
 			if(empty($affected_rows)){
 				Errmsg('修改失败');
 			}else{
@@ -57,7 +57,7 @@ class Documentcate extends Admin_Controller {
 		}
 		
 		$where = array('id !=' => $id);
-		$data['lists'] = $this->_cate_level($this->Documentcate_model->lists($where));		
+		$data['lists'] = $this->_cate_level($this->Dcate->lists($where));		
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
@@ -70,11 +70,11 @@ class Documentcate extends Admin_Controller {
 			exit();
 		}
 		$del_id[] = $id;
-		$data = $this->_cate_level($this->Documentcate_model->lists(),$id);		
+		$data = $this->_cate_level($this->Dcate->lists(),$id);		
 		foreach($data as $v){
 			$del_id[] = $v['id'];
 		}
-		$affected_rows = $this->Documentcate_model->del($del_id);
+		$affected_rows = $this->Dcate->del($del_id);
 		if(empty($affected_rows)){
 			Errmsg('删除失败');
 			exit();

@@ -50,7 +50,7 @@
                             </tr>
                             <tr>
                               	<td valign="top" class="td_right">图片：</td>
-                              	<td><input type="text" name="image" class="input-text lh30" /><input type="file" name="filename" /></td>
+                              	<td><input type="text" name="image" class="input-text lh30" /><input type="file" name="filename"/></td>
                             </tr>
                             <tr>
                                 <td valign="top" class="td_right">内容：</td>

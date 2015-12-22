@@ -16,7 +16,7 @@ class Admin_Controller extends MY_Controller{
 	public function _image_upload($arr = array(),$file){        
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = 0;
-		$config['file_name'] = date('YmdHis');		
+		$config['file_name'] = date('YmdHis').'_'.rand(1000,9999);		
 		$config = array_merge($config,$arr);
         $this->load->library('upload', $config);
         if($this->upload->do_upload($file)){
