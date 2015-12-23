@@ -9,7 +9,7 @@ class Login extends MY_Controller {
 		if(!empty($_POST)){
 			$username = $this->input->post('username',NULL);
 			$password = $this->input->post('password',NULL);
-			$verify = $this->input->post('verify',NULL);
+			$verify = strtoupper($this->input->post('verify',NULL));
 			
 			if(empty($username) || empty($password) || empty($verify)){
 				Errmsg('不能为空');
@@ -43,9 +43,9 @@ class Login extends MY_Controller {
 			redirect(MODULE.'/main/index');
 			exit();
 		}
-		
-		$data['captcha'] = $this->_captcha();		
+		//$data['captcha'] = $this->_captcha();
 		$this->load->view(MODULE.'/user/login',$data);
+
 	}
 	
 	public function captcha(){
@@ -54,5 +54,16 @@ class Login extends MY_Controller {
 			exit();
 		}
 		echo $this->_captcha();
-	}	
+	}
+	
+	public function codev(){
+		$config = array(
+			'width'	=>	80,
+			'height'=>	25,
+			'codeLen'=>	4,
+			'fontSize'=>16
+			);
+		$this->load->library('Code', $config);
+		$this->code->show();
+	}
 }
