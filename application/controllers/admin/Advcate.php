@@ -11,13 +11,13 @@ class Advcate extends Admin_Controller {
 	}
 	//内容分类
 	public function index(){
-		$data['lists'] = $this->_cate_level($this->Dcate->lists());
+		$data['lists'] = $this->Dcate->lists();
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 		
 	//添加分类
 	public function add(){
-		$state = $this->form_validation->run('Advcate');			
+		$state = $this->form_validation->run('advcate');			
 		if($state && (!empty($_POST))){
 			$affected_rows = $this->Dcate->add();
 			if(empty($affected_rows)){
@@ -27,8 +27,7 @@ class Advcate extends Admin_Controller {
 			}
 		}
 		
-		$data['lists'] = $this->_cate_level($this->Dcate->lists());
-		$this->load->view(MODULE.'/'.C.'/'.M,$data);
+		$this->load->view(MODULE.'/'.C.'/'.M);
 	}
 	
 	//编辑分类
@@ -44,7 +43,7 @@ class Advcate extends Admin_Controller {
 		if(empty($data['rows'])){
 			Errmsg('数据非法');
 		}		
-		$state = $this->form_validation->run('Advcate');	
+		$state = $this->form_validation->run('advcate');	
 			
 		if($state && (!empty($_POST))){
 			$affected_rows = $this->Dcate->edit($where);
@@ -56,8 +55,6 @@ class Advcate extends Admin_Controller {
 			exit();
 		}
 		
-		$where = array('id !=' => $id);
-		$data['lists'] = $this->_cate_level($this->Dcate->lists($where));		
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
@@ -69,19 +66,9 @@ class Advcate extends Admin_Controller {
 			Errmsg('非法参数');
 			exit();
 		}
-		$del_id[] = $id;
-		$data = $this->_cate_level($this->Dcate->lists(),$id);		
-		foreach($data as $v){
-			$del_id[] = $v['id'];
+		$affected_rows = $this->Dcate->del($id);
+		if($affected_rows){
+			Msgbox('删除成功',site_url(MODULE.'/'.C.'/index'));
 		}
-		$affected_rows = $this->Dcate->del($del_id);
-		if(empty($affected_rows)){
-			Errmsg('删除失败');
-			exit();
-		}else{
-			$this->load->model(MODULE.'/Adv_model');
-			$this->Adv_model->del($del_id,'Advcate_id');	
-		}
-		redirect(MODULE.'/'.C.'/index');
 	}
 }
