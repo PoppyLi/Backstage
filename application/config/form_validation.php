@@ -43,6 +43,50 @@ $config = array(
             'label' => '排序',
             'rules' => 'required|integer'
         )
+    ),
+	'advcate' => array(
+        array(
+            'field' => 'name',
+            'label' => '分类名称',
+            'rules' => 'required|max_length[10]'
+        ),
+        array(
+            'field' => 'width',
+            'label' => '图片宽',
+            'rules' => 'required|integer'
+        ),
+		array(
+            'field' => 'height',
+            'label' => '图片高',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'sort',
+            'label' => '排序',
+            'rules' => 'required|integer'
+        )
+    ),
+	'adv' => array(
+        array(
+            'field' => 'advcate_id',
+            'label' => '分类名称',
+            'rules' => 'required|is_natural_no_zero'
+        ),
+        array(
+            'field' => 'name',
+            'label' => '广告名称',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'sort',
+            'label' => '排序',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'addtime',
+            'label' => '添加时间',
+            'rules' => 'required'
+        )
     )
 );
 
