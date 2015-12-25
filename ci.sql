@@ -10,27 +10,50 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-24 19:14:38
+Date: 2015-12-25 22:39:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `ci_adv`
+-- ----------------------------
+DROP TABLE IF EXISTS `ci_adv`;
+CREATE TABLE `ci_adv` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `advcate_id` int(11) DEFAULT '0',
+  `name` varchar(100) DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `is_blank` int(100) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `addtime` int(11) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ci_adv
+-- ----------------------------
+INSERT INTO `ci_adv` VALUES ('64', '10', '横幅', 'http://www.baidu.com', '0', '3', '1', '1451053996', './upload/images/adv/20151225223345_4378.jpg');
+
 -- ----------------------------
 -- Table structure for `ci_advcate`
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_advcate`;
 CREATE TABLE `ci_advcate` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) DEFAULT NULL,
   `width` smallint(6) DEFAULT '0',
   `height` smallint(6) DEFAULT '0',
   `sort` int(11) DEFAULT '3',
   `remark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_advcate
 -- ----------------------------
+INSERT INTO `ci_advcate` VALUES ('10', '幻灯片', '200', '150', '1', '幻灯片');
 
 -- ----------------------------
 -- Table structure for `ci_document`
