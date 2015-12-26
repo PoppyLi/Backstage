@@ -1,11 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Advcate extends Admin_Controller {
+class Links extends Admin_Controller {
 	public function __construct(){
 		parent :: __construct();
-		$this->load->model(MODULE.'/Advcate_model','Dcate');
-		$this->load->model(MODULE.'/Adv_model','Dadv');
+		$this->load->model(MODULE.'/Links_model','Dcate');
 				
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -18,7 +17,7 @@ class Advcate extends Admin_Controller {
 		
 	//添加分类
 	public function add(){
-		$state = $this->form_validation->run('advcate');			
+		$state = $this->form_validation->run('links');			
 		if($state && (!empty($_POST))){
 			$affected_rows = $this->Dcate->add();
 			if(empty($affected_rows)){
@@ -44,8 +43,7 @@ class Advcate extends Admin_Controller {
 		if(empty($data['rows'])){
 			Errmsg('数据非法');
 		}		
-		$state = $this->form_validation->run('advcate');	
-			
+		$state = $this->form_validation->run('links');		
 		if($state && (!empty($_POST))){
 			$affected_rows = $this->Dcate->edit($where);
 			if(empty($affected_rows)){
@@ -54,8 +52,7 @@ class Advcate extends Admin_Controller {
 				Msgbox('修改成功',site_url(MODULE.'/'.C.'/index'));
 			}
 			exit();
-		}
-		
+		}		
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-25 22:39:39
+Date: 2015-12-26 19:08:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -109,6 +109,28 @@ INSERT INTO `ci_documentcate` VALUES ('12', '0', '国内新闻', '1');
 INSERT INTO `ci_documentcate` VALUES ('13', '0', '国际新闻', '2');
 INSERT INTO `ci_documentcate` VALUES ('14', '12', '军事新闻', '1');
 INSERT INTO `ci_documentcate` VALUES ('15', '14', '社会新闻', '1');
+
+-- ----------------------------
+-- Table structure for `ci_links`
+-- ----------------------------
+DROP TABLE IF EXISTS `ci_links`;
+CREATE TABLE `ci_links` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `addtime` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ci_links
+-- ----------------------------
+INSERT INTO `ci_links` VALUES ('1', '新浪', 'http://www.sina.com.cn', '1', '4', '1451126408');
+INSERT INTO `ci_links` VALUES ('2', '腾讯', 'http://www.qq.com', '1', '3', '1451126408');
+INSERT INTO `ci_links` VALUES ('3', '网易', 'http://www.163.com', '1', '2', '1451126434');
+INSERT INTO `ci_links` VALUES ('4', '百度', 'http://www.baidu.com', '1', '1', '1451126447');
 
 -- ----------------------------
 -- Table structure for `ci_user`
