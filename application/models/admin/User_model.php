@@ -60,4 +60,15 @@ class User_model extends MY_Model {
 		$this->db->update($this->t,$data,$where);
 		return $this->db->affected_rows();
 	}
+	
+	public function update_login($user=array()){
+		$data = array(
+			'login_num'		=>	$user['login_num'] + 1,
+			'login_time'	=>	time(),
+			'login_ip'		=>	$this->input->ip_address()
+		);
+		$where = array('id' => $user['id']);
+		
+		$this->db->update($this->t,$data,$where);
+	}
 }

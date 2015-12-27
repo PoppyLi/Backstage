@@ -39,7 +39,8 @@ class Login extends MY_Controller {
 				exit();
 			}
 			
-			$_SESSION['user'] = $user;			
+			$_SESSION['user'] = $user;
+			$this->User_model->update_login($user);		
 			redirect(MODULE.'/main/index');
 			exit();
 		}

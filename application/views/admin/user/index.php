@@ -27,7 +27,7 @@
                     <td><?php echo $v['username']?></td>
                     <td><?php echo $sex[$v['sex']]?></td>
                     <td><?php echo $v['login_num']?></td>
-                    <td><?php echo $v['login_time']?></td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['login_time'])?></td>
                     <td><?php echo $v['login_ip']?></td>
                     <td><?php echo $status[$v['status']]?></td>
                     <td><?php echo date('Y-m-d H:i:s',$v['addtime'])?></td>
