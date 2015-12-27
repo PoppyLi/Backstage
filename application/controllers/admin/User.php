@@ -5,6 +5,45 @@ class User extends Admin_Controller {
 	public function __construct(){
 		parent :: __construct();
 		$this->load->model(MODULE.'/User_model');
+		
+		$this->load->helper('form');		
+		$this->load->library('form_validation');
+	}
+	
+	public function index(){
+		$data = array();
+		$this->config->load('admin_config');
+		
+		$data['lists'] = $this->User_model->lists();
+		$data['sex'] = $this->config->item('sex');
+		$data['status'] = $this->config->item('status');
+		$this->load->view(MODULE.'/'.C.'/'.M,$data);
+	}
+	
+	public function add(){
+		$data = array();
+		$username = $this->input->post('username');
+		$state = $this->form_validation->run('user');
+		
+		if($state){
+			if($this->User_model->user_exists($username)){
+				Errmsg('用户名 '.$username.' 已经存在');	
+			}
+			$affected = $this->User_model->add();
+			if($affected){
+				Msgbox('添加成功',site_url(MODULE.'/'.C.'/'.M));	
+			}
+		}		
+		$this->load->view(MODULE.'/'.C.'/'.M);
+	}
+	
+	//编辑用户
+	public function edit(){
+		$data = array();
+		$id = $this->uri->segment(4,0);
+		$data['row'] = $this->User_model->row($id);
+		
+		$this->load->view(MODULE.'/'.C.'/'.M,$data);	
 	}
 	
 	public function update_pass(){
@@ -13,7 +52,7 @@ class User extends Admin_Controller {
 			$old_password = $this->input->post('old_password');
 			$where = array(
 				'id' => $_SESSION['user']['id'],
-				'password' => $this->_password($old_password)
+				'password' => $old_password
 			);
 			$row = $this->User_model->login($where);
 			if(empty($row)){
@@ -22,11 +61,8 @@ class User extends Admin_Controller {
 			}
 			
 			//新密码修改
-			$new_password = $this->input->post('new_password');					
-			$date = array(
-				'password' => $this->_password($new_password)
-			);			
-			$affected_rows = $this->User_model->updata_pass($date);
+			$new_password = $this->input->post('new_password');			
+			$affected_rows = $this->User_model->updata_pass($new_password);
 			if(empty($affected_rows)){
 				Errmsg('修改失败');
 			}else{

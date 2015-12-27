@@ -87,6 +87,51 @@ $config = array(
             'label' => '添加时间',
             'rules' => 'required'
         )
+    ),
+	'links' => array(
+        array(
+            'field' => 'name',
+            'label' => '链接名称',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'url',
+            'label' => '链接网址',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'sort',
+            'label' => '排序',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'addtime',
+            'label' => '添加时间',
+            'rules' => 'required'
+        )
+    )
+	,
+	'user' => array(
+        array(
+            'field' => 'username',
+            'label' => '用户名',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'status',
+            'label' => '状态',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'sort',
+            'label' => '排序',
+            'rules' => 'required|integer'
+        ),
+        array(
+            'field' => 'addtime',
+            'label' => '添加时间',
+            'rules' => 'required'
+        )
     )
 );
 

@@ -27,7 +27,6 @@ class Admin_Controller extends MY_Controller{
 }
 
 class MY_Controller extends CI_Controller {
-
 	public function __construct(){
 		parent :: __construct();
 		
@@ -37,10 +36,6 @@ class MY_Controller extends CI_Controller {
 		define('MODULE','admin');
 		define('C',$this->uri->segment(2,'main'));
 		define('M',$this->uri->segment(3,'index'));
-	}
-	
-	protected function _password($pass){
-		return md5(md5($pass).'ci');
 	}
 	
 	//验证码

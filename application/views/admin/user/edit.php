@@ -8,7 +8,7 @@
 
 <body>
 <div class="container">
-    <div id="here_location">当前位置：用户管理<span>&gt;</span>添加用户</div>
+    <div id="here_location">当前位置：用户管理<span>&gt;</span>编辑用户</div>
     <div id="forms">
         <div class="box">
             <div class="box_border">
@@ -17,7 +17,7 @@
                         <table class="form_table pt15 pb15" width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="td_right">用户名：</td>
-                                <td><input type="text" name="username" class="input-text lh30" required value="<?php echo set_value('username')?>" /><?php echo form_error('username');?></td>
+                                <td><?php echo $row['username']?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">密码：</td>
@@ -26,17 +26,17 @@
                             <tr>
                                 <td class="td_right">性别：</td>
                                 <td>
-                                	<label><input name="sex" type="radio" value="1" checked="checked" /> 男</label>
+                                	<label><input name="sex" type="radio" value="1" <?php echo ($row['sex'])?'checked="checked"':''?> /> 男</label>
                                     &nbsp;&nbsp;&nbsp;
-                                    <label><input name="sex" type="radio" value="0" /> 女</label>
+                                    <label><input name="sex" type="radio" value="0" <?php echo ($row['sex'])?'':'checked="checked"'?>/> 女</label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="td_right">状态：</td>
                                 <td>
-                                	<label><input name="status" type="radio" value="1" checked="checked" /> 启用</label>
+                                	<label><input name="status" type="radio" value="1" <?php echo ($row['sex'])?'checked="checked"':''?> /> 启用</label>
                                     &nbsp;&nbsp;&nbsp;
-                                    <label><input name="status" type="radio" value="0" /> 禁用</label>
+                                    <label><input name="status" type="radio" value="0" <?php echo ($row['sex'])?'':'checked="checked"'?>/> 禁用</label>
                                 </td>
                             </tr>
                             <tr>
@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td class="td_right">添加时间：</td>
-                                <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:i:s');?>" required />&nbsp;<?php echo form_error('addtime')?></td>
+                                <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:i:s',$row['addtime']);?>" required />&nbsp;<?php echo form_error('addtime')?></td>
                             </tr>
                             <tr>
                                 <td class="td_right">&nbsp;</td>

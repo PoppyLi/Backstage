@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-26 19:08:01
+Date: 2015-12-27 16:00:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -140,11 +140,17 @@ CREATE TABLE `ci_user` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `password` char(32) CHARACTER SET utf8 DEFAULT NULL,
+  `sex` int(11) DEFAULT NULL,
   `status` int(2) DEFAULT NULL,
+  `login_num` int(11) DEFAULT NULL,
+  `login_time` int(11) DEFAULT NULL,
+  `addtime` int(11) DEFAULT NULL,
+  `login_ip` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ci_user
 -- ----------------------------
-INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1');
+INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', null, null, '1451201183', null);
+INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '0', null, null, '1451201183', null);

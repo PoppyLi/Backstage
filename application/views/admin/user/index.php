@@ -3,21 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" href="public/admin/css/common.css">
-<link rel="stylesheet" href="public/admin/css/main.css">
-<script type="text/javascript" src="public/admin/js/jquery.min.js"></script>
-<script type="text/javascript" src="public/admin/js/colResizable-1.3.min.js"></script>
-<script type="text/javascript" src="public/admin/js/common.js"></script>
-<script type="text/javascript">
-$(function(){
-	$(".list_table").colResizable({
-		liveDrag:true,
-		gripInnerHtml:"<div class='grip'></div>", 
-		draggingClass:"dragging", 
-		//minWidth:30
-	}); 
-}); 
-</script>
+<?php $this->load->view(MODULE.'/Common/head');?>
 </head>
 
 <body>
@@ -28,29 +14,27 @@ $(function(){
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="list_table">
                 <tr>
                     <th>用户名</th>
+                    <th>性别</th>
                     <th>登录次数</th>
                     <th>上次登录时间</th>
                     <th>上次登录IP</th>
                     <th>状态</th>
+                    <th>添加时间</th>
                     <th>操作</th>
                 </tr>
-                                <tr class="tr">
-                    <td>admin</td>
-                    <td>22</td>
-                    <td>2015-10-16 15:35:09</td>
-                    <td>::1</td>
-                    <td>启用</td>
-                    <td><a href="admin/user/edit/1">编辑</a> | <a onclick="return confirm('确定删除？')" href="admin/user/del/1">删除</a></td>
+                <?php foreach($lists as $v){?>
+                <tr class="tr">
+                    <td><?php echo $v['username']?></td>
+                    <td><?php echo $sex[$v['sex']]?></td>
+                    <td><?php echo $v['login_num']?></td>
+                    <td><?php echo $v['login_time']?></td>
+                    <td><?php echo $v['login_ip']?></td>
+                    <td><?php echo $status[$v['status']]?></td>
+                    <td><?php echo date('Y-m-d H:i:s',$v['addtime'])?></td>
+                    <td><a href="<?php echo site_url(MODULE.'/'.C.'/edit/'.$v['id'])?>">编辑</a> | <a onclick="return confirm('确定删除？')" href="<?php echo site_url(MODULE.'/'.C.'/del/'.$v['id'])?>">删除</a></td>
                 </tr>
-                                <tr class="tr">
-                    <td>root</td>
-                    <td>4</td>
-                    <td>2015-10-16 15:35:09</td>
-                    <td>127.0.0.1</td>
-                    <td>启用</td>
-                    <td><a href="admin/user/edit/2">编辑</a> | <a onclick="return confirm('确定删除？')" href="admin/user/del/2">删除</a></td>
-                </tr>
-                            </table>
+                <?php }?>
+           </table>
         </div>
     </div>
 </div>

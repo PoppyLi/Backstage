@@ -100,15 +100,15 @@ function menuScroll(num){
                     </ul>
                 <h3> 广告管理 </h3>
         <ul>
-                        <li><a href="admin/advcate/index" target="right">广告分类</a></li>
-                        <li><a href="admin/advcate/add" target="right">添加分类</a></li>
-                        <li><a href="admin/adv/index" target="right">广告列表</a></li>
-                        <li><a href="admin/adv/add" target="right">添加广告</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/advcate/index')?>" target="right">广告分类</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/advcate/add')?>" target="right">添加分类</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/adv/index')?>" target="right">广告列表</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/adv/add')?>" target="right">添加广告</a></li>
                     </ul>
                 <h3> 友情链接 </h3>
         <ul>
-                        <li><a href="admin/links/index" target="right">链接列表</a></li>
-                        <li><a href="admin/links/add" target="right">添加链接</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/links/index')?>" target="right">链接列表</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/links/add')?>" target="right">添加链接</a></li>
                     </ul>
                 <h3> 信息管理 </h3>
         <ul>
@@ -117,8 +117,8 @@ function menuScroll(num){
                     </ul>
                 <h3> 用户管理 </h3>
         <ul>
-                        <li><a href="admin/user/index" target="right">用户列表</a></li>
-                        <li><a href="admin/user/add" target="right">添加用户</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/user/index')?>" target="right">用户列表</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/user/add')?>" target="right">添加用户</a></li>
                     </ul>
                 <h3> 权限管理 </h3>
         <ul>

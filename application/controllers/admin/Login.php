@@ -26,7 +26,7 @@ class Login extends MY_Controller {
 			$this->load->model(MODULE.'/User_model');
 			$where = array(
 				'username' => $username,
-				'password' => $this->_password($password)
+				'password' => $password
 			);
 			$user = $this->User_model->login($where);
 			if(empty($user)){
