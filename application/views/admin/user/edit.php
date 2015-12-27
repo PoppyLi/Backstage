@@ -13,7 +13,7 @@
         <div class="box">
             <div class="box_border">
                 <div class="box_center">
-                    <form action="<?php echo site_url(MODULE .'/'. C .'/'. M );?>" class="jqtransform" method="post">
+                    <form action="<?php echo site_url(MODULE .'/'. C .'/'. M .'/'.$row['id']);?>" class="jqtransform" method="post">
                         <table class="form_table pt15 pb15" width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="td_right">用户名：</td>
@@ -21,7 +21,7 @@
                             </tr>
                             <tr>
                                 <td class="td_right">密码：</td>
-                                <td><input type="password" name="password" class="input-text lh30" required /></td>
+                                <td><input type="password" name="password" class="input-text lh30" /></td>
                             </tr>
                             <tr>
                                 <td class="td_right">性别：</td>
@@ -34,9 +34,9 @@
                             <tr>
                                 <td class="td_right">状态：</td>
                                 <td>
-                                	<label><input name="status" type="radio" value="1" <?php echo ($row['sex'])?'checked="checked"':''?> /> 启用</label>
+                                	<label><input name="status" type="radio" value="1" <?php echo ($row['status'])?'checked="checked"':''?> /> 启用</label>
                                     &nbsp;&nbsp;&nbsp;
-                                    <label><input name="status" type="radio" value="0" <?php echo ($row['sex'])?'':'checked="checked"'?>/> 禁用</label>
+                                    <label><input name="status" type="radio" value="0" <?php echo ($row['status'])?'':'checked="checked"'?>/> 禁用</label>
                                 </td>
                             </tr>
                             <tr>

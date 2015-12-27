@@ -43,7 +43,23 @@ class User extends Admin_Controller {
 		$id = $this->uri->segment(4,0);
 		$data['row'] = $this->User_model->row($id);
 		
+		if(!empty($_POST) && $id){
+			$affected = $this->User_model->edit($id);	
+			if($affected){
+				Msgbox('修改成功',site_url(MODULE.'/'.C.'/index/'));	
+			}
+		}
+		
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);	
+	}
+	
+	//删除用户
+	public function del(){
+		$id = $this->uri->segment(4,0);
+		$affected = $this->User_model->del($id);
+		if($affected){
+				Msgbox('删除成功',site_url(MODULE.'/'.C.'/index/'));	
+		}	
 	}
 	
 	public function update_pass(){

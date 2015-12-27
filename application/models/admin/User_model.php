@@ -46,6 +46,26 @@ class User_model extends MY_Model {
 		return $this->db->insert_id();
 	}
 	
+	//编辑用户
+	public function edit($id=NULL){
+		$data = array();
+		$data = $this->_get_data($this->t);	
+		if(!empty($data['password'])){
+			$data['password'] = $this->_password($data['password']);
+		}else{
+			unset($data['password']);	
+		}
+		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
+		
+		$this->db->update($this->t,$data,array('id' => $id));
+		return $this->db->affected_rows();
+	}
+	
+	//删除用户
+	public function del($id){
+		return $this->db->delete($this->t,array('id' => $id));
+	}
+	
 	//新密码修改
 	public function updata_pass($new_password){
 		if(empty($new_password)){
