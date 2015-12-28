@@ -21,15 +21,15 @@ $(function(){
 			return false;		
 		}
 	});
-/*	$('img#verify').click(function(){
+	$('img#verify').click(function(){
 		$.ajax({
-			url : '<?php echo site_url(MODULE.'/'.C.'/captcha');?>?i=' + Math.random(),
+			url : '<?php echo site_url(MODULE.'/'.C.'/codev');?>?i=' + Math.random(),
 			success:function(data){
 				$('img#verify').attr('src',data);
 				return ;
 			}
 		});
-	});*/
+	});
 });
 </script>
 </head>
@@ -41,7 +41,7 @@ $(function(){
         <div><input type="text" name="username" class="username" placeholder="用户名" value="" /></div>
         <div><input type="password" name="password" class="username password" placeholder="密码" value="" /></div>
         <div><input type="text" name="verify" class="username verify" placeholder="验证码" /></div>
-        <div><img src="<?php echo site_url('admin/login/codev') ?>" alt="" />&nbsp;
+        <div><img id="verify" src="<?php echo site_url(MODULE.'/'.C.'/codev');?>" alt="" />&nbsp;
         <input type="submit" id="submit" value="登&nbsp;&nbsp;陆" /></div>
     </form>
 </div>

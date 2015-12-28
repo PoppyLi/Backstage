@@ -127,7 +127,7 @@ function menuScroll(num){
                     </ul>
                 <h3> 系统管理 </h3>
         <ul>
-                        <li><a href="admin/system/index" target="right">系统设置</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/system/index')?>" target="right">系统设置</a></li>
                     </ul>
             </div>
 </div>
