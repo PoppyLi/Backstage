@@ -122,8 +122,8 @@ function menuScroll(num){
                     </ul>
                 <h3> 权限管理 </h3>
         <ul>
-                        <li><a href="admin/jurisdiction/index" target="right">权限列表</a></li>
-                        <li><a href="admin/jurisdiction/add" target="right">添加权限</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/jurisdiction/index')?>" target="right">权限列表</a></li>
+                        <li><a href="<?php echo site_url(MODULE.'/jurisdiction/add')?>" target="right">添加权限</a></li>
                     </ul>
                 <h3> 系统管理 </h3>
         <ul>

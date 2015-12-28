@@ -109,8 +109,7 @@ $config = array(
             'label' => '添加时间',
             'rules' => 'required'
         )
-    )
-	,
+    ),
 	'user' => array(
         array(
             'field' => 'username',
@@ -130,6 +129,13 @@ $config = array(
         array(
             'field' => 'addtime',
             'label' => '添加时间',
+            'rules' => 'required'
+        )
+    ),
+	'jurisdiction' => array(
+        array(
+            'field' => 'name',
+            'label' => '权限名称',
             'rules' => 'required'
         )
     )
