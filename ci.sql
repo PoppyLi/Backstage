@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-27 16:00:02
+Date: 2015-12-28 22:56:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -74,7 +74,7 @@ CREATE TABLE `ci_document` (
 -- Records of ci_document
 -- ----------------------------
 INSERT INTO `ci_document` VALUES ('7', '12', '7', '日媒:中国船频赴东海投放筒状物 无视日方抗议', null, '日媒:中国船频赴东海投放筒状物 无视日方抗议', '1448967609');
-INSERT INTO `ci_document` VALUES ('8', '12', '1', '浙江温州市委书记调任中央', './upload/images/document/20151222212903_2305.jpg', '<p>\r\n 浙江温州市委书记调任中央深改办 一直任职浙江浙江。\r\n</p>\r\n<p>\r\n 温州市委书记调任中央深改办 一直任职浙江浙江温州市委书\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书。\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江\r\n</p>', '1448964758');
+INSERT INTO `ci_document` VALUES ('8', '12', '1', '浙江温州市委书记调任中央', './upload/images/document/20151227163341_8862.jpg', '<p>\r\n 浙江温州市委书记调任中央深改办 一直任职浙江浙江。\r\n</p>\r\n<p>\r\n 温州市委书记调任中央深改办 一直任职浙江浙江温州市委书\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书。\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江\r\n</p>', '1448964758');
 INSERT INTO `ci_document` VALUES ('9', '13', '2', '铁总:首次网上购票3天内完成手机双向核验 民调', null, '', '1448967538');
 INSERT INTO `ci_document` VALUES ('10', '12', '3', '四川官员车祸去世留2200元存款 银行催30万房贷', null, '四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷', '1448964729');
 INSERT INTO `ci_document` VALUES ('11', '13', '4', '王金平秘书办公室死亡 现场无打斗痕迹(图)', null, '', '1448964739');
@@ -111,6 +111,36 @@ INSERT INTO `ci_documentcate` VALUES ('14', '12', '军事新闻', '1');
 INSERT INTO `ci_documentcate` VALUES ('15', '14', '社会新闻', '1');
 
 -- ----------------------------
+-- Table structure for `ci_jurisdiction`
+-- ----------------------------
+DROP TABLE IF EXISTS `ci_jurisdiction`;
+CREATE TABLE `ci_jurisdiction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `class_method` varchar(200) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ci_jurisdiction
+-- ----------------------------
+INSERT INTO `ci_jurisdiction` VALUES ('1', '0', '内容管理', null, '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('2', '1', '内容分类', 'documentcate/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('3', '1', '添加内容', 'documentcate/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('4', '1', '编辑分类', 'documentcate/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('5', '1', '删除分类', 'documentcate/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('6', '1', '内容列表', 'document/index', '1', '5');
+INSERT INTO `ci_jurisdiction` VALUES ('7', '1', '添加内容', 'document/add', '1', '6');
+INSERT INTO `ci_jurisdiction` VALUES ('8', '1', '编辑内容', 'document/edit', '0', '7');
+INSERT INTO `ci_jurisdiction` VALUES ('9', '1', '删除内容', 'document/del', '0', '8');
+INSERT INTO `ci_jurisdiction` VALUES ('10', '0', '广告管理', '', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('11', '10', '广告分类', 'advcate/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('12', '10', '添加分类', 'advcate/add', '1', '2');
+
+-- ----------------------------
 -- Table structure for `ci_links`
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_links`;
@@ -133,6 +163,32 @@ INSERT INTO `ci_links` VALUES ('3', '网易', 'http://www.163.com', '1', '2', '1
 INSERT INTO `ci_links` VALUES ('4', '百度', 'http://www.baidu.com', '1', '1', '1451126447');
 
 -- ----------------------------
+-- Table structure for `ci_system`
+-- ----------------------------
+DROP TABLE IF EXISTS `ci_system`;
+CREATE TABLE `ci_system` (
+  `company_name` varchar(30) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `telphone` varchar(50) DEFAULT NULL,
+  `mobile` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `fax` varchar(12) DEFAULT NULL,
+  `qq` varchar(128) DEFAULT NULL,
+  `zipcode` int(6) DEFAULT NULL,
+  `website` varchar(30) DEFAULT NULL,
+  `copyright` varchar(128) DEFAULT NULL,
+  `title` varchar(128) DEFAULT NULL,
+  `keywords` varchar(200) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `remark` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ci_system
+-- ----------------------------
+INSERT INTO `ci_system` VALUES ('装饰公司', '时代广场1号楼A座1008室', '0871-55667788', '冯先生 13833338888', 'mail@163.com', '传真', '123456', '123456', 'www.baidu.com', '版权所有', '首页标题', '首页关键词', '首页描述', '备注');
+
+-- ----------------------------
 -- Table structure for `ci_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_user`;
@@ -144,13 +200,14 @@ CREATE TABLE `ci_user` (
   `status` int(2) DEFAULT NULL,
   `login_num` int(11) DEFAULT NULL,
   `login_time` int(11) DEFAULT NULL,
-  `addtime` int(11) DEFAULT NULL,
   `login_ip` varchar(100) DEFAULT NULL,
+  `jurisdiction` text,
+  `addtime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ci_user
 -- ----------------------------
-INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', null, null, '1451201183', null);
-INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '0', null, null, '1451201183', null);
+INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '4', '1451310970', '::1', null, '1451201183');
+INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '1', '1451208439', '::1', null, '1451201183');
