@@ -42,6 +42,7 @@ class User_model extends MY_Model {
 		$data = $this->_get_data($this->t);
 		$data['password'] = $this->_password($data['password']);
 		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
+		$data['jurisdiction'] = implode(',',$data['jurisdiction']);
 		$this->db->insert($this->t,$data);
 		return $this->db->insert_id();
 	}
@@ -56,7 +57,7 @@ class User_model extends MY_Model {
 			unset($data['password']);	
 		}
 		$data['addtime'] = empty($data['addtime'])?time():strtotime($data['addtime']);
-		
+		$data['jurisdiction'] = implode(',',$data['jurisdiction']);
 		$this->db->update($this->t,$data,array('id' => $id));
 		return $this->db->affected_rows();
 	}

@@ -33,8 +33,11 @@ class User extends Admin_Controller {
 			if($affected){
 				Msgbox('添加成功',site_url(MODULE.'/'.C.'/'.M));	
 			}
-		}		
-		$this->load->view(MODULE.'/'.C.'/'.M);
+		}
+		$this->load->model(MODULE.'/Jurisdiction_model','Jur');
+		$data['jurisdiction'] = $this->Jur->left_menu();
+			
+		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
 	//编辑用户
@@ -49,6 +52,8 @@ class User extends Admin_Controller {
 				Msgbox('修改成功',site_url(MODULE.'/'.C.'/index/'));	
 			}
 		}
+		$this->load->model(MODULE.'/Jurisdiction_model','Jur');
+		$data['jurisdiction'] = $this->Jur->left_menu();
 		
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);	
 	}

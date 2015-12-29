@@ -48,6 +48,21 @@
                                 <td><input type="text" name="addtime" class="input-text lh30" value="<?php echo date('Y-m-d H:i:s');?>" required />&nbsp;<?php echo form_error('addtime')?></td>
                             </tr>
                             <tr>
+                                <td class="td_right">权限：</td>
+                                <td>
+                                	<?php foreach($jurisdiction as $v){?>
+                                    	<strong><label><input name="jurisdiction[]" type="checkbox" value="<?php echo $v['id']?>">&nbsp;<?php echo $v['name']?></label></strong><br>
+                                        <?php 
+											foreach($v['child'] as $val){
+										?>
+												<label><input name="jurisdiction[]" type="checkbox" value="<?php echo $val['id']?>">&nbsp;<?php echo $val['name']?></label>&nbsp;&nbsp;
+                                        <?php
+											}
+										?><br><hr class="h1"><br>
+                                    <?php }?>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="td_right">&nbsp;</td>
                                 <td><input type="submit" name="button1" class="btn btn82 btn_save2" value="保存">
                                     <input type="reset" name="button2" class="btn btn82 btn_res" value="重置"></td>

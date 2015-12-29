@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-29 18:46:00
+Date: 2015-12-29 19:32:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -232,10 +232,10 @@ CREATE TABLE `ci_user` (
   `jurisdiction` text,
   `addtime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ci_user
 -- ----------------------------
-INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '5', '1451383698', '::1', null, '1451201183');
-INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '1', '1451208439', '::1', null, '1451201183');
+INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '5', '1451383698', '::1', '3,4,11,12,13,14,15,16,17,18', '1451201183');
+INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '1', '1451208439', '::1', '2,3,4', '1451201183');
