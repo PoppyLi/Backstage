@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-28 22:56:58
+Date: 2015-12-29 18:46:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -122,7 +122,7 @@ CREATE TABLE `ci_jurisdiction` (
   `status` int(11) DEFAULT NULL,
   `sort` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_jurisdiction
@@ -139,6 +139,34 @@ INSERT INTO `ci_jurisdiction` VALUES ('9', '1', '删除内容', 'document/del', 
 INSERT INTO `ci_jurisdiction` VALUES ('10', '0', '广告管理', '', '1', '2');
 INSERT INTO `ci_jurisdiction` VALUES ('11', '10', '广告分类', 'advcate/index', '1', '1');
 INSERT INTO `ci_jurisdiction` VALUES ('12', '10', '添加分类', 'advcate/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('13', '10', '编辑分类', 'advcate/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('14', '10', '删除分类', 'advcate/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('15', '10', '广告列表', 'adv/index', '1', '5');
+INSERT INTO `ci_jurisdiction` VALUES ('16', '10', '添加广告', 'adv/add', '1', '6');
+INSERT INTO `ci_jurisdiction` VALUES ('17', '10', '编辑广告', 'adv/edit', '0', '7');
+INSERT INTO `ci_jurisdiction` VALUES ('18', '10', '删除广告', 'adv/del', '0', '8');
+INSERT INTO `ci_jurisdiction` VALUES ('19', '0', '友情链接', null, '1', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('20', '19', '链接列表', 'links/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('21', '19', '添加链接', 'links/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('22', '19', '编辑链接', 'links/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('23', '19', '删除链接', 'links/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('24', '0', '信息管理', null, '1', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('25', '24', '信息列表', 'message/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('26', '24', '添加信息', 'message/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('27', '24', '编辑信息', 'message/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('28', '24', '删除信息', 'message/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('29', '0', '用户管理', null, '1', '5');
+INSERT INTO `ci_jurisdiction` VALUES ('30', '29', '用户列表', 'user/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('31', '29', '添加用户', 'user/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('32', '29', '编辑用户', 'user/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('33', '29', '删除用户', 'user/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('34', '0', '权限管理', null, '1', '6');
+INSERT INTO `ci_jurisdiction` VALUES ('35', '34', '权限列表', 'jurisdiction/index', '1', '1');
+INSERT INTO `ci_jurisdiction` VALUES ('36', '34', '添加权限', 'jurisdiction/add', '1', '2');
+INSERT INTO `ci_jurisdiction` VALUES ('37', '34', '编辑权限', 'jurisdiction/edit', '0', '3');
+INSERT INTO `ci_jurisdiction` VALUES ('38', '34', '删除权限', 'jurisdiction/del', '0', '4');
+INSERT INTO `ci_jurisdiction` VALUES ('39', '0', '系统管理', null, '1', '7');
+INSERT INTO `ci_jurisdiction` VALUES ('40', '39', '系统设置', 'system/index', '1', '1');
 
 -- ----------------------------
 -- Table structure for `ci_links`
@@ -204,10 +232,10 @@ CREATE TABLE `ci_user` (
   `jurisdiction` text,
   `addtime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ci_user
 -- ----------------------------
-INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '4', '1451310970', '::1', null, '1451201183');
+INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '5', '1451383698', '::1', null, '1451201183');
 INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '1', '1451208439', '::1', null, '1451201183');

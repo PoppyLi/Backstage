@@ -3,8 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends Admin_Controller {
 	
-	public function index(){		
-		$this->load->view(MODULE.'/'.C.'/'.M);
+	public function index(){
+		$data = array();		
+		$this->load->model(MODULE.'/Jurisdiction_model','Jur');
+		$data['menu'] = $this->Jur->left_menu();
+		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	
 	public function right(){

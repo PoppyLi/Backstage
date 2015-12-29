@@ -8,6 +8,10 @@ class Jurisdiction_model extends MY_Model {
 		return $this->db->order_by('sort,id')->get_where($this->t,$where)->result_array();
 	}
 	
+	public function left_menu(){
+		return parent :: _get_child($this->lists());
+	}
+	
 	public function rows($where = array()){
 		if(empty($where)){
 			return false;

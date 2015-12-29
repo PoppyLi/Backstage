@@ -31,4 +31,15 @@ class MY_Model extends CI_Model {
 		}		
 		return $data;
 	}
+	
+	static protected function _get_child($data,$pid=0){
+		$array = array();
+		foreach($data as $v){
+			if($v['pid'] == $pid){
+				$v['child'] = self :: _get_child($data,$v['id']);
+				$array[] = $v;
+			}
+		}
+		return $array;
+	}
 }
