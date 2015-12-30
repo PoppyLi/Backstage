@@ -856,9 +856,11 @@ if ( ! function_exists('function_usable'))
 //自定义函数
 
 function Msgbox($msg,$url){
-	echo "<script>alert('$msg');location.href='$url';</script>";	
+	echo "<script>alert('$msg');location.href='$url';</script>";
+	exit;
 }
 
 function Errmsg($msg){
 	echo "<script>alert('$msg');history.back();</script>";
+	exit;
 }

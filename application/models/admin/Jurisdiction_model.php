@@ -12,11 +12,11 @@ class Jurisdiction_model extends MY_Model {
 		return parent :: _get_child($this->lists());
 	}
 	
-	public function rows($where = array()){
+	public function rows($where = array(),$select = array()){
 		if(empty($where)){
 			return false;
 		}
-		return $this->db->get_where($this->t,$where)->result_array();
+		return $this->db->select($select)->get_where($this->t,$where)->result_array();
 	}
 	
 	public function add(){

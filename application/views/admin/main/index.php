@@ -94,7 +94,11 @@ function menuScroll(num){
         <?php 
 		foreach($menu as $v){
 			if(!$v['status'])
-				continue;	
+				continue;
+			if(empty($supper_user)){
+				if(! in_array($v['id'],$jur))
+					continue;
+			}
 		?>
         <h3><?php echo $v['name']?></h3>
         <ul>
@@ -102,6 +106,10 @@ function menuScroll(num){
 			foreach($v['child'] as $val){
 				if(!$val['status'])
 					continue;
+				if(empty($supper_user)){
+					if(! in_array($val['id'],$jur))
+						continue;
+				}
 			?>
             <li><a href="<?php echo site_url(MODULE.'/'.$val['class_method'])?>" target="right"><?php echo $val['name']?></a></li>
             <?php }?>

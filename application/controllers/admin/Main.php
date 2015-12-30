@@ -7,6 +7,13 @@ class Main extends Admin_Controller {
 		$data = array();		
 		$this->load->model(MODULE.'/Jurisdiction_model','Jur');
 		$data['menu'] = $this->Jur->left_menu();
+		
+		$data['jur'] = explode(',',$_SESSION['user']['jurisdiction']);
+		$data['supper_user'] = '';
+		$this->config->load('admin_config');
+		if(in_array($_SESSION['user']['id'],$this->config->item('supper')))		
+			$data['supper_user'] = 'TRUE';
+			
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);
 	}
 	

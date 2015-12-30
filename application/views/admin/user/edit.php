@@ -51,11 +51,11 @@
                                 <td class="td_right">权限：</td>
                                 <td>
                                 	<?php foreach($jurisdiction as $v){?>
-                                    	<strong><label><input name="jurisdiction[]" type="checkbox" value="<?php echo $v['id']?>">&nbsp;<?php echo $v['name']?></label></strong><br>
+                                    	<strong><label><input name="jurisdiction[]" type="checkbox" value="<?php echo $v['id']?>"  <?php echo in_array($v['id'],$jur)?'checked="checked"':''; ?>>&nbsp;<?php echo $v['name']?></label></strong><br>
                                         <?php 
 											foreach($v['child'] as $val){
 										?>
-												<label><input name="jurisdiction[]" type="checkbox" value="<?php echo $val['id']?>">&nbsp;<?php echo $val['name']?></label>&nbsp;&nbsp;
+												<label><input name="jurisdiction[]" type="checkbox" value="<?php echo $val['id']?>"  <?php echo in_array($val['id'],$jur)?'checked="checked"':''; ?>>&nbsp;<?php echo $val['name']?></label>&nbsp;&nbsp;
                                         <?php
 											}
 										?><br><hr class="h1"><br>

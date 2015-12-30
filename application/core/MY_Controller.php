@@ -11,6 +11,24 @@ class Admin_Controller extends MY_Controller{
 			exit();
 		}		
 		//权限判断
+		$this->config->load('admin_config');
+		$user_id = $_SESSION['user']['id'];
+		$supper = $this->config->item('supper');
+		$supper_page = $this->config->item('supper_page');
+		$page = C.'/'.M;
+		
+		if(! in_array($user_id,$supper) && ! in_array($page,$supper_page)){
+			$this->load->model(MODULE.'/Jurisdiction_model','Jur');				
+			$row = $this->Jur->rows(array('class_method' => $page),'id');
+			if(empty($row[0]['id'])){
+				Errmsg('没有权限');	
+			}
+			$jur_arr = explode(',',$_SESSION['user']['jurisdiction']);
+			if(! in_array($row[0]['id'],$jur_arr)){
+				Errmsg('没有权限');
+			}
+		}
+		
 	}
 	
 	public function _image_upload($arr = array(),$file){        

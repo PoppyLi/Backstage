@@ -54,7 +54,7 @@ class User extends Admin_Controller {
 		}
 		$this->load->model(MODULE.'/Jurisdiction_model','Jur');
 		$data['jurisdiction'] = $this->Jur->left_menu();
-		
+		$data['jur'] = explode(',',$data['row']['jurisdiction']);
 		$this->load->view(MODULE.'/'.C.'/'.M,$data);	
 	}
 	
