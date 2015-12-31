@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+class Home_Controller extends MY_Controller{
+	public function __construct(){
+		parent :: __construct('Home',1,2);
+	}
+}
+
 class Admin_Controller extends MY_Controller{
 	public function __construct(){
 		parent :: __construct();
@@ -49,14 +55,13 @@ class MY_Controller extends CI_Controller {
 		parent :: __construct();
 		
 		//session_start();
+		header("Content-type: text/html; charset=utf-8");
+		ini_set('date.timezone','Asia/Shanghai');
 		
 		define('PUB','public');
 		define('MODULE',$MODULE);
 		define('C',$this->uri->segment($controller,'main'));
-		define('M',$this->uri->segment($method,'index'));
-		
-		header("Content-type: text/html; charset=utf-8");
-		ini_set('date.timezone','Asia/Shanghai');
+		define('M',$this->uri->segment($method,'index'));		
 	}
 	
 	//验证码

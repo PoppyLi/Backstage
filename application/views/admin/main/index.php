@@ -77,7 +77,7 @@ function menuScroll(num){
         <div id="photo_info" class="fr">
             <div id="photo" class="fl"> <a href="javascript:void(0)"><img src="<?php echo base_url(PUB.'/'.MODULE.'/images/a.png')?>" alt="" width="60" height="60"></a> </div>
             <div id="base_info" class="fr">
-                <div class="help_info"> <a href="<?php echo site_url(MODULE.'/user/update_pass')?>" id="hp" target="right">改密</a> <a href="index.php" id="gy" target="_blank">前台</a> <a href="<?php echo site_url(MODULE.'/'.C.'/login_out')?>" id="out">退出</a> </div>
+                <div class="help_info"> <a href="<?php echo site_url(MODULE.'/user/update_pass')?>" id="hp" target="right">改密</a> <a href="<?php echo site_url();?>" id="gy" target="_blank">前台</a> <a href="<?php echo site_url(MODULE.'/'.C.'/login_out')?>" id="out">退出</a> </div>
                 <div class="info_center"> <?php echo $_SESSION['user']['username']?> </div>
             </div>
         </div>
