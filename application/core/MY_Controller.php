@@ -45,15 +45,18 @@ class Admin_Controller extends MY_Controller{
 }
 
 class MY_Controller extends CI_Controller {
-	public function __construct(){
+	public function __construct($MODULE='admin',$controller=2,$method=3){
 		parent :: __construct();
 		
 		//session_start();
 		
 		define('PUB','public');
-		define('MODULE','admin');
-		define('C',$this->uri->segment(2,'main'));
-		define('M',$this->uri->segment(3,'index'));
+		define('MODULE',$MODULE);
+		define('C',$this->uri->segment($controller,'main'));
+		define('M',$this->uri->segment($method,'index'));
+		
+		header("Content-type: text/html; charset=utf-8");
+		ini_set('date.timezone','Asia/Shanghai');
 	}
 	
 	//验证码
