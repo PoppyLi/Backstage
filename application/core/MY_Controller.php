@@ -102,10 +102,27 @@ class MY_Controller extends CI_Controller {
 		return $array;
 	}
 	
-	//底部信息调用
+	//获取底部信息
 	public function GetFooter(){
 		$this->load->model(MODULE.'/System_model','sys');
 		return $this->sys->row();
+	}
+	
+	//获取菜单信息
+	public function GetNav(){
+		$data = array();
+		$this->load->model(MODULE.'/Documentcate_model','DocC');
+		$data = $this->DocC->lists(array('is_nav' => 1));
+		
+		foreach($data as $k => $v){
+			$v['url'] = empty($v['url'])?$v['en_name'].'/index/'.$v['id']:$v['url'];
+			foreach($v['child'] as $key => $val){
+				$val['url'] = empty($val['url'])?$v['en_name'].'/index/'.$val['id']:$val['url'];
+				$v['child'][$key] = $val;
+			}
+			$data[$k] = $v;
+		}
+		return $data;
 	}
 	
 }

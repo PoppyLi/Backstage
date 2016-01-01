@@ -40,12 +40,24 @@
                                 <td><input type="text" name="name" class="input-text lh30" required value="<?php echo $rows[0]['name']; ?>"/>&nbsp;<?php echo form_error('name');?></td>
                             </tr>
                             <tr>
+                                <td class="td_right">英文名称：</td>
+                                <td><input type="text" name="en_name" class="input-text lh30" value="<?php echo $rows[0]['en_name']; ?>"/></td>
+                            </tr>
+                            <tr>
                                 <td class="td_right">分类排序：</td>
                                 <td><input type="text" name="sort" class="input-text lh30" value="<?php echo $rows[0]['sort']; ?>" pattern="[0-9]+" />&nbsp;<?php echo form_error('sort');?>&nbsp;值越小越排在前</td>
                             </tr>
                             <tr>
+                                <td class="td_right">是否为菜单：</td>
+                                <td><label><input type="radio" name="is_nav" value="1" <?php echo !empty($rows[0]['is_nav'])?' checked="checked"':''?>/>&nbsp;是</label>&nbsp;&nbsp;<label><input type="radio" name="is_nav" value="0"<?php echo !empty($rows[0]['is_nav'])?'':' checked="checked"'?>/>&nbsp;否</label></td>
+                            </tr>
+                            <tr>
+                                <td class="td_right">链接地址：</td>
+                                <td><input type="text" name="url" class="input-text lh30" value="<?php echo $rows[0]['url']; ?>"/></td>
+                            </tr>
+                            <tr>
                                 <td class="td_right">&nbsp;</td>
-                                <td><input type="submit" name="button2" class="btn btn82 btn_save2" value="保存">
+                                <td><input type="submit" name="button1" class="btn btn82 btn_save2" value="保存">
                                     <input type="reset" name="button2" class="btn btn82 btn_res" value="重置"></td>
                             </tr>
                         </table>

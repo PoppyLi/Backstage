@@ -15,7 +15,10 @@
                 <tr>
                     <th>ID</th>
                     <th>分类名称</th>
+                    <th>英文名称</th>
                     <th>级别</th>
+                    <th>是否为菜单</th>
+                    <th>链接地址</th>
                     <th>排序</th>
                     <th>操作</th>
                 </tr>
@@ -26,7 +29,10 @@
                 <tr class="tr">
                     <td><?php echo $value['id']?></td>
                     <td><div style="padding-left:0em;"><?php echo str_repeat('&nbsp;',($value['level'] - 1)*4).$value['name']?></div></td>
+                    <td><?php echo $value['en_name']?></td>
                     <td><?php echo $value['level']?>级</td>
+                    <td><?php echo !empty($value['is_nav'])?'是':'否'?></td>
+                    <td><?php echo $value['url']?></td>
                     <td><?php echo $value['sort']?></td>
                     <td><a href="<?php echo site_url(MODULE.'/'.C.'/edit/'.$value['id'])?>">编辑</a> | <a onClick="return confirm('确定删除？')" href="<?php echo site_url(MODULE.'/'.C.'/del/'.$value['id'])?>">删除</a></td>
                 </tr>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50612
 File Encoding         : 65001
 
-Date: 2015-12-29 19:32:37
+Date: 2016-01-01 23:18:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,12 +48,12 @@ CREATE TABLE `ci_advcate` (
   `sort` int(11) DEFAULT '3',
   `remark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_advcate
 -- ----------------------------
-INSERT INTO `ci_advcate` VALUES ('10', '幻灯片', '200', '150', '1', '幻灯片');
+INSERT INTO `ci_advcate` VALUES ('11', '2222', '200', '150', '1', '1111111');
 
 -- ----------------------------
 -- Table structure for `ci_document`
@@ -73,22 +73,6 @@ CREATE TABLE `ci_document` (
 -- ----------------------------
 -- Records of ci_document
 -- ----------------------------
-INSERT INTO `ci_document` VALUES ('7', '12', '7', '日媒:中国船频赴东海投放筒状物 无视日方抗议', null, '日媒:中国船频赴东海投放筒状物 无视日方抗议', '1448967609');
-INSERT INTO `ci_document` VALUES ('8', '12', '1', '浙江温州市委书记调任中央', './upload/images/document/20151227163341_8862.jpg', '<p>\r\n 浙江温州市委书记调任中央深改办 一直任职浙江浙江。\r\n</p>\r\n<p>\r\n 温州市委书记调任中央深改办 一直任职浙江浙江温州市委书\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书记调任中央深改办 一直任职浙江浙江温州市委书。\r\n</p>\r\n<p>\r\n 记调任中央深改办 一直任职浙江\r\n</p>', '1448964758');
-INSERT INTO `ci_document` VALUES ('9', '13', '2', '铁总:首次网上购票3天内完成手机双向核验 民调', null, '', '1448967538');
-INSERT INTO `ci_document` VALUES ('10', '12', '3', '四川官员车祸去世留2200元存款 银行催30万房贷', null, '四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷四川官员车祸去世留2200元存款 银行催30万房贷', '1448964729');
-INSERT INTO `ci_document` VALUES ('11', '13', '4', '王金平秘书办公室死亡 现场无打斗痕迹(图)', null, '', '1448964739');
-INSERT INTO `ci_document` VALUES ('12', '13', '5', '女子晨练被击晕遭劫财劫色 嫌犯赔5.3万获谅解', null, '', '1448967569');
-INSERT INTO `ci_document` VALUES ('13', '13', '6', '村民娶外籍妻子 老婆过世后发现一家人都染艾滋', null, '村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋村民娶外籍妻子 老婆过世后发现一家人都染艾滋', '1448964758');
-INSERT INTO `ci_document` VALUES ('14', '14', '1', '上海厅官安路生6年前享副部待遇', '', '上海厅官安路生6年前享副部待遇', '1449148376');
-INSERT INTO `ci_document` VALUES ('15', '15', '1', '中传违规调查:楼新得像暴发户', null, '<img alt=\"\" src=\"/public/kindeditor/attached/image/20151205/20151205213832_84591.png\" />中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年中传违规调查:楼新得像暴发户 操场修3年', '1449148323');
-INSERT INTO `ci_document` VALUES ('17', '12', '1', '上海长宁闵行区长分别转任市交通', null, '<img alt=\"\" src=\"/upload/kindeditor/attached/image/20151206/20151206181523_15432.png\" /><img alt=\"\" src=\"/upload/kindeditor/attached/image/20151206/20151206181614_37012.png\" />上海长宁闵行区长分别转任市交通局人社局书记', '1449148353');
-INSERT INTO `ci_document` VALUES ('18', '12', '1', '俄军舰遭土耳其潜艇尾随 双方紧张对峙上', null, '', '1449148336');
-INSERT INTO `ci_document` VALUES ('19', '13', '1', '俄公布土与IS石油交易证据总统也参与', null, '', '1449148341');
-INSERT INTO `ci_document` VALUES ('20', '13', '1', '州市委书记调任', null, '', '1449152906');
-INSERT INTO `ci_document` VALUES ('21', '12', '1', '记调任中央深改办 一直任职浙江', null, '', '1449151959');
-INSERT INTO `ci_document` VALUES ('26', '13', '1', 'IS声称其两名追随者实施了加州枪击案', null, '<p>\r\n	<img alt=\"\" src=\"/public/kindeditor/attached/image/20151205/20151205210611_50547.png\" />【IS声称其两名追随者实施了加州枪击案】\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img alt=\"\" src=\"/public/kindeditor/attached/image/20151205/20151205210611_50547.png\" />路透社报道，IS极端组织的广播声称，该组织的两名追随者实施了#加州枪击案#。\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img alt=\"\" src=\"/public/kindeditor/attached/image/20151205/20151205210611_50547.png\" />此前报道称，枪击案的女嫌犯塔什芬-马利克实施枪击前曾用化名在Facebook上向IS效忠。枪击案共致使14人死亡。（新浪）\r\n</p>', '1449320657');
-INSERT INTO `ci_document` VALUES ('47', '15', '1', '测试表单数据验证', '', '啊啊啊啊啊啊啊aaaaaaaaaaaaa', '1450335588');
 
 -- ----------------------------
 -- Table structure for `ci_documentcate`
@@ -98,17 +82,40 @@ CREATE TABLE `ci_documentcate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
+  `en_name` varchar(30) DEFAULT NULL,
+  `is_nav` int(11) DEFAULT '1',
+  `url` varchar(200) DEFAULT NULL,
   `sort` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ci_documentcate
 -- ----------------------------
-INSERT INTO `ci_documentcate` VALUES ('12', '0', '国内新闻', '1');
-INSERT INTO `ci_documentcate` VALUES ('13', '0', '国际新闻', '2');
-INSERT INTO `ci_documentcate` VALUES ('14', '12', '军事新闻', '1');
-INSERT INTO `ci_documentcate` VALUES ('15', '14', '社会新闻', '1');
+INSERT INTO `ci_documentcate` VALUES ('16', '0', '公司简介', 'about', '1', 'about/index/1', '1');
+INSERT INTO `ci_documentcate` VALUES ('17', '16', '关于我们', '', '1', 'about/index/2', '1');
+INSERT INTO `ci_documentcate` VALUES ('18', '16', '经营理念', '', '1', 'about/index/3', '2');
+INSERT INTO `ci_documentcate` VALUES ('19', '16', '企业锋芒', '', '1', 'about/index/4', '3');
+INSERT INTO `ci_documentcate` VALUES ('20', '16', '公司文化', '', '1', 'about/index/5', '4');
+INSERT INTO `ci_documentcate` VALUES ('21', '0', '装修知识', 'zhuangxiuzhishi', '1', '', '2');
+INSERT INTO `ci_documentcate` VALUES ('22', '21', '设计指南', null, '1', null, '1');
+INSERT INTO `ci_documentcate` VALUES ('23', '21', '风水指南', null, '1', null, '2');
+INSERT INTO `ci_documentcate` VALUES ('24', '0', '案例展示', null, '1', null, '3');
+INSERT INTO `ci_documentcate` VALUES ('25', '24', '家装案例', null, '1', null, '1');
+INSERT INTO `ci_documentcate` VALUES ('26', '24', '办公室案例', null, '1', null, '2');
+INSERT INTO `ci_documentcate` VALUES ('27', '24', '专卖店案例', null, '1', null, '3');
+INSERT INTO `ci_documentcate` VALUES ('28', '0', '公司服务', null, '1', null, '4');
+INSERT INTO `ci_documentcate` VALUES ('29', '28', '服务项目', null, '1', null, '1');
+INSERT INTO `ci_documentcate` VALUES ('30', '28', '服务流程', null, '1', null, '2');
+INSERT INTO `ci_documentcate` VALUES ('31', '0', '环保保障', null, '1', null, '5');
+INSERT INTO `ci_documentcate` VALUES ('32', '31', '环保质量', null, '1', null, '1');
+INSERT INTO `ci_documentcate` VALUES ('33', '31', '施工保障', null, '1', null, '2');
+INSERT INTO `ci_documentcate` VALUES ('34', '31', '施工标准', null, '1', null, '3');
+INSERT INTO `ci_documentcate` VALUES ('35', '0', '设计理念', null, '1', null, '6');
+INSERT INTO `ci_documentcate` VALUES ('36', '35', '五大风格', null, '1', null, '1');
+INSERT INTO `ci_documentcate` VALUES ('37', '0', '招贤纳士', null, '1', null, '7');
+INSERT INTO `ci_documentcate` VALUES ('38', '0', '联系我们', null, '1', null, '8');
+INSERT INTO `ci_documentcate` VALUES ('39', '38', '在线反馈', null, '1', null, '1');
 
 -- ----------------------------
 -- Table structure for `ci_jurisdiction`
@@ -214,7 +221,7 @@ CREATE TABLE `ci_system` (
 -- ----------------------------
 -- Records of ci_system
 -- ----------------------------
-INSERT INTO `ci_system` VALUES ('装饰公司', '时代广场1号楼A座1008室', '0871-55667788', '冯先生 13833338888', 'mail@163.com', '传真', '123456', '123456', 'www.baidu.com', '版权所有', '首页标题', '首页关键词', '首页描述', '备注');
+INSERT INTO `ci_system` VALUES ('装饰公司', '时代广场1号楼A座1008室', '0871-55667788', '冯先生 13833338888', 'mail@163.com', '传真', '123456', '123456', 'http://www.website.com', '版权所有 2012-2015 ICP备88888-x', '首页标题', '首页关键词', '首页描述', '备注');
 
 -- ----------------------------
 -- Table structure for `ci_user`
@@ -232,10 +239,10 @@ CREATE TABLE `ci_user` (
   `jurisdiction` text,
   `addtime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ci_user
 -- ----------------------------
-INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '5', '1451383698', '::1', '3,4,11,12,13,14,15,16,17,18', '1451201183');
-INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '1', '1451208439', '::1', '2,3,4', '1451201183');
+INSERT INTO `ci_user` VALUES ('1', 'admin', '8e36e8014ee6e6fb07f500ffd19c3bd0', '1', '1', '10', '1451652873', '::1', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18', '1451201183');
+INSERT INTO `ci_user` VALUES ('2', 'root', '8e36e8014ee6e6fb07f500ffd19c3bd0', '0', '1', '4', '1451488311', '::1', '1,2,3,4,5,6,7,8,9,10,11,12,13', '1451201183');

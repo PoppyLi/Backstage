@@ -10,6 +10,9 @@ class Main extends Home_Controller {
 	{
 		$data = array();
 		$data['row'] = $this->GetFooter();
+		$data['nav'] = $this->GetNav();
+
+
 		$this->load->view('home/main/index',$data);
 	}
 }
