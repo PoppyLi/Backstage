@@ -4,9 +4,9 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta charset="utf-8" />
-<title>装饰公司</title>
-<meta name="description" content="装饰公司" />
-<meta name="keywords" content="装饰公司" />
+<title><?php echo $row['title']?></title>
+<meta name="description" content="<?php echo $row['description']?>" />
+<meta name="keywords" content="<?php echo $row['keywords']?>" />
 <?php $this->load->view('home/common/Style')?>
 </head>
 

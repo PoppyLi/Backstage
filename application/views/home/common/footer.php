@@ -17,13 +17,13 @@
         <a href="/lianxiwomen/index/23.html">联系我们</a>
         </div>
         
-    <p>装饰公司 版权所有 2012-2015 ICP备88888-x</p>
-    <p>地址：时代广场1号楼A座1008室&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：0871-55667788</p>
+    <p><?php echo $row['company_name']?> <?php echo $row['copyright']?></p>
+    <p>地址：<?php echo $row['address']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话：<?php echo $row['telphone']?></p>
     <!--版权信息-->
     <div class="powered_by_metinfo">
-    Powered&nbsp;by&nbsp;<a href="http://www.website.com">装饰公司</a>
+    Powered&nbsp;by&nbsp;<a href="<?php echo $row['website']?>"><?php echo $row['company_name']?></a>
     &copy;2012-2015&nbsp;
-    <a href="http://www.website.com">http://www.website.com</a>
+    <a href="http://www.website.com"><?php echo $row['website']?></a>
     </div>
     <!--版权信息结束-->
 </div>

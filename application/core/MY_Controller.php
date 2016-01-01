@@ -102,4 +102,10 @@ class MY_Controller extends CI_Controller {
 		return $array;
 	}
 	
+	//底部信息调用
+	public function GetFooter(){
+		$this->load->model(MODULE.'/System_model','sys');
+		return $this->sys->row();
+	}
+	
 }

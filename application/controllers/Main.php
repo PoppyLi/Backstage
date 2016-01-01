@@ -8,6 +8,8 @@ class Main extends Home_Controller {
 	
 	public function index()
 	{
-		$this->load->view('home/main/index');
+		$data = array();
+		$data['row'] = $this->GetFooter();
+		$this->load->view('home/main/index',$data);
 	}
 }
