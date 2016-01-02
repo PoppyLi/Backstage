@@ -31,3 +31,13 @@
          </div>
     </div>
 </div>
+
+<div class="banner-box">
+    <div class="banmove">
+    	<?php foreach($banner as $v){?>
+        <a href="javascript:void(0)" style="background:url(<?php echo base_url($v['image']);?>) no-repeat center center;"></a>
+		<?php }?>
+    </div>
+    <div class="banmun"></div>
+    <div class="banerbot"></div>
+</div>

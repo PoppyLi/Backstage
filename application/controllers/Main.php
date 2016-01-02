@@ -7,12 +7,8 @@ class Main extends Home_Controller {
 	}
 	
 	public function index()
-	{
-		$data = array();
-		$data['row'] = $this->GetFooter();
-		$data['nav'] = $this->GetNav();
-
-
-		$this->load->view('home/main/index',$data);
+	{	
+		$data = $this->CommonInfo;
+		$this->load->view('home/index',$data);
 	}
 }

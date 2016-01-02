@@ -2,8 +2,53 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home_Controller extends MY_Controller{
+	protected $CommonInfo = array();
+	
 	public function __construct(){
 		parent :: __construct('Home',1,2);
+		
+		$this->load->model(MODULE.'/Documentcate_model','DocC');
+		
+		$this->CommonInfo['row'] = $this->GetFooter();
+		$this->CommonInfo['nav'] = $this->GetNav();
+		$this->CommonInfo['banner'] = $this->GetBanner();
+	}
+	
+	//获取底部信息
+	public function GetFooter(){
+		$this->load->model(MODULE.'/System_model','sys');
+		return $this->sys->row();
+	}
+	
+	//获取菜单信息
+	public function GetNav(){
+		$data = array();
+		$data = $this->DocC->lists(array('is_nav' => 1));
+		
+		foreach($data as $k => $v){
+			$v['url'] = empty($v['url'])?$v['en_name'].'/index/'.$v['id']:$v['url'];
+			foreach($v['child'] as $key => $val){
+				$val['url'] = empty($val['url'])?$v['en_name'].'/index/'.$val['id']:$val['url'];
+				$v['child'][$key] = $val;
+			}
+			$data[$k] = $v;
+		}
+		return $data;
+	}
+	
+	//获取头部幻灯片
+	public function GetBanner(){
+		$data = array();
+		$this->load->model(MODULE.'/Adv_model','Adv');
+		$data = $this->Adv->rows(array('advcate_id' => 11));
+		return $data;
+	}
+	
+	//获取内容分类
+	public function GetDocumentcate($id = NULL){
+		$data = array();
+		$data = $this->DocC->rows(array('id' => $id));
+		return $data;
 	}
 }
 
@@ -101,28 +146,4 @@ class MY_Controller extends CI_Controller {
 		}
 		return $array;
 	}
-	
-	//获取底部信息
-	public function GetFooter(){
-		$this->load->model(MODULE.'/System_model','sys');
-		return $this->sys->row();
-	}
-	
-	//获取菜单信息
-	public function GetNav(){
-		$data = array();
-		$this->load->model(MODULE.'/Documentcate_model','DocC');
-		$data = $this->DocC->lists(array('is_nav' => 1));
-		
-		foreach($data as $k => $v){
-			$v['url'] = empty($v['url'])?$v['en_name'].'/index/'.$v['id']:$v['url'];
-			foreach($v['child'] as $key => $val){
-				$val['url'] = empty($val['url'])?$v['en_name'].'/index/'.$val['id']:$val['url'];
-				$v['child'][$key] = $val;
-			}
-			$data[$k] = $v;
-		}
-		return $data;
-	}
-	
 }

@@ -12,15 +12,6 @@
 
 <body>
 <?php $this->load->view('home/common/header')?>
-<div class="banner-box">
-    <div class="banmove">
-                <a href="javascript:void(0)" style="background:url(/upload/adv/1.jpg) no-repeat center center;"></a>
-                <a href="javascript:void(0)" style="background:url(/upload/adv/2.jpg) no-repeat center center;"></a>
-                <a href="javascript:void(0)" style="background:url(/upload/adv/3.jpg) no-repeat center center;"></a>
-            </div>
-    <div class="banmun"></div>
-    <div class="banerbot"></div>
-</div>
 
 <div class="main-box">
   <div class="main-topblock"></div>
